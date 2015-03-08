@@ -1,0 +1,15 @@
+{
+  "name": "Laerning Javascript Design Patterns",
+  "version": "0.0.0",
+  "authors": [
+    "Larry Botha <larry@fixate.it>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
