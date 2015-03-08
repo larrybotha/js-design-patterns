@@ -6,11 +6,26 @@ plumber			= require "gulp-plumber"
 watch				= require "gulp-watch"
 browserSync = require "browser-sync"
 reload			= browserSync.reload
+spawn				= require('child_process').spawn
+
+gulp.task 'auto-reload', () ->
+  process = undefined
+
+  restart = () ->
+    if process
+      process.kill()
+    process = spawn('gulp', [ 'default' ], stdio: 'inherit')
+    return
+
+  gulp.watch ['gulpfile.coffee', 'config.js'], restart
+  restart()
+  return
 
 gulp.task "browser-sync", () ->
 	browserSync {
 		injectChanges: true
 		# tunnel: true
+		open: false
 		server:
 			baseDir: './'
 	}
