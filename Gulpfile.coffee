@@ -42,10 +42,10 @@ gulp.task "sass", () ->
 		.pipe reload({stream: true})
 
 gulp.task "coffee", () ->
-	gulp.src(["**/assets/coffee/*.coffee"], { cwdbase: true })
+	gulp.src(["**/assets/js/*.coffee"])
 		.pipe(plumber())
 		.pipe(coffee({bare: true}))
-		.pipe(gulp.dest("../js"))
+		.pipe(gulp.dest(""))
 
 gulp.task "watch", () ->
 	gulp.watch "shared/**/*.scss", ["sass"]
