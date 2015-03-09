@@ -13,7 +13,13 @@ class Subject
 
 	# notify all observers in the list
 	notify: (context) ->
-		for i in @observers
+		observerCount = @observers.count()
+		i = 0
+
+		# for every observer that has been added, get each instance, and
+		# update it with the notification
+		while i < observerCount
 			@observers.get(i).update(context)
+			i++
 
 		return
